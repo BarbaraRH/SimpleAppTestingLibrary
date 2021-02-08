@@ -28,7 +28,7 @@ test('initial condition', () => {
 test('checkbox functionality', () => {
   render(<App />);
 
-  const checkbox = screen.getByRole('checkbox');
+  const checkbox = screen.getByRole('checkbox', {name: 'Disable button'});//name obedece al label relacionado por "htmlFor"
   const colorButton = screen.getByRole('button', {name: 'Change to blue'});
 
   fireEvent.click(checkbox);

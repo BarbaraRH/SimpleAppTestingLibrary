@@ -18,12 +18,14 @@ const App = () => {
       </button>
       <input 
         type="checkbox" 
+        id="disable-button-checkbox"
         defaultChecked={buttonDisabled}
         aria-checked={buttonDisabled}
         onChange={() => {
           setButtonDisabled(!buttonDisabled)
         }}
       />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 };
