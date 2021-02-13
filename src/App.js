@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
-  const [buttonIsRed, setButtonIsRed] = useState(true);
+  const [buttonColor, setButtonColor] = useState('red');
   const [buttonDisabled, setButtonDisabled] = useState(false);
+  const colorChanged = buttonColor === "red" ? "blue" : "red";
 
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonIsRed ? "red" : "blue" }}
+        style={{ color: "white", backgroundColor: buttonDisabled ? "gray" : buttonColor }}
         disabled={buttonDisabled}
         onClick={() => {
-          setButtonIsRed(!buttonIsRed);
+          setButtonColor(colorChanged);
         }}
       >
-        {buttonIsRed ? "Change to blue" : "Change to red"}
+        Change to {colorChanged}
       </button>
       <input 
         type="checkbox" 
@@ -22,7 +23,7 @@ const App = () => {
         defaultChecked={buttonDisabled}
         aria-checked={buttonDisabled}
         onChange={() => {
-          setButtonDisabled(!buttonDisabled)
+          setButtonDisabled(!buttonDisabled);
         }}
       />
       <label htmlFor="disable-button-checkbox">Disable button</label>
